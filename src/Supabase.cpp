@@ -1,4 +1,4 @@
-#include "Supabase.h"
+#include "ESP32_Supabase.h"
 
 void Supabase::_check_last_string()
 {
@@ -23,27 +23,22 @@ int Supabase::_login_process()
     String query = "{\"" + loginMethod + "\": \"" + phone_or_email + "\", \"password\": \"" + password + "\"}";
     httpCode = https.POST(query);
 
-  if (httpCode > 0)
-  {
-    String data = https.getString();
-    deserializeJson(doc, data);
-    if (doc.containsKey("access_token") && !doc["access_token"].isNull() && doc["access_token"].is<String>() && !doc["access_token"].as<String>().isEmpty()) {
+    if (httpCode > 0)
+    {
+      String data = https.getString();
+      deserializeJson(doc, data);
       USER_TOKEN = doc["access_token"].as<String>();
       Serial.println("Login Success");
       Serial.println(USER_TOKEN);
-      Serial.println(data);
-    } else {
-      Serial.println("Login Failed: Invalid access token in response");
     }
-  }
-  else
-  {
-    Serial.println(phone_or_email);
-    Serial.println(password);
+    else
+    {
+      Serial.println(phone_or_email);
+      Serial.println(password);
 
-    Serial.print("Login Failed : ");
-    Serial.println(httpCode);
-  }
+      Serial.print("Login Failed : ");
+      Serial.println(httpCode);
+    }
 
     https.end();
     loginTime = millis();
