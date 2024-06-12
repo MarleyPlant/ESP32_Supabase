@@ -13,6 +13,7 @@ For further information :
 ## Table of Contents
 
 - [ESP32 Supabase](#esp32-supabase)
+  - [Project Using This Library](#project-using-this-library)
   - [Table of Contents](#table-of-contents)
   - [Using This Library](#using-this-library)
   - [Examples](#examples)
@@ -44,12 +45,14 @@ See all examples in `examples` folder
 | `login_email(String email_a, String password_a)` | Returns http response code `int`                                                                                                     |
 | `login_phone(String phone_a, String password_a)` | Returns http response code `int`                                                                                                     |
 | `insert(String table, String json, bool upsert)` | Returns http response code `int`. If you want to do upsert, set thirt parameter to `true`                                            |
+| `upload(String bucket, String filename, String mime_type, Stream *stream, uint32_t size)` | `bucket` is the name of the Supabase Storage bucket without any `/`. `filename` is the name to upload the file with, should have extension but no `/`. Takes a `Stream*` pointer as an argument, this can be Arduino SD `File*` or SPIFFS `File*` types. Returns http response code `int`. `mime_type` is for eg. `image/jpg`. `size` is the total size in bytes of the file to upload. Returns http response code `int`. |
+| `upload(String bucket, String filename, String mime_type, uint8_t *buffer, uint32_t size)` | Same function as the previous one but takes a `uint8_t*` buffer instead of a `Stream*`. Can be used for files stored in RAM. |
 | `.doSelect()`                                    | Called at the end of select query chain, see [Examples](#examples). Returns http response payload (your data) from Supabase `String` |
 | `.doUpdate(String json)`                         | Called at the end of update query chain, see [Examples](#examples). Returns http response code from Supabase `int`                   |
 
 ### Building The Queries
 
-When building the queries, you can chaining the method like this example.
+When building the queries, you can chain the method like in this example.
 
 > Remember in `.select()` method, it is mandatory to put some low amount of `.limit()`, so you can avoid your microcontroller's memory get overflowed
 
@@ -114,7 +117,7 @@ db.urlQuery_reset();
 - [x] Make order/sort query builder method to in Select
 - [x] Implement Update with PATCH HTTPS Request
 - [x] Port to ESP8266
-- [ ] Implement calling RPC function with HTTPS Request
+- [x] Implement calling RPC function with HTTPS Request
 - [ ] Implement several methods to implement [Supabase Realtime](https://supabase.com/docs/guides/realtime)
 
 Better documentation is always a welcoming change 😄️😄️
