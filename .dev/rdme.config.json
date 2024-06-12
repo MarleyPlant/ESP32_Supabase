@@ -1,0 +1,211 @@
+{
+  "name": "ESP32_Supabase",
+  "description": "An Arduino Platform Library for connecting ESP32 to Supabase via REST API, including user authentication.",
+  "gitPath": "",
+  "sections": [
+    "Brands",
+    "Custom",
+    "Contributors"
+  ],
+  "sectionconfig": {
+    "Development": {
+      "order": 1
+    },
+    "Shields": {
+      "order": 0
+    },
+    "Custom": {
+      "data": {},
+      "order": 2
+    },
+    "Contributors": {
+      "data": [
+        {
+          "name": "Jeremy Watt",
+          "email": [
+            "jermwatt@gmail.com"
+          ],
+          "commits": 9,
+          "profiles": {
+            "name": "Jermwatt",
+            "gravatar": [
+              {
+                "profileUrl": "https://gravatar.com/jermwatt",
+                "preferredUsername": "jermwatt",
+                "name": {
+                  "givenName": "Jeremy",
+                  "familyName": "Watt",
+                  "formatted": "Jeremy Watt"
+                },
+                "displayName": "Nugget",
+                "photos": [
+                  {
+                    "value": "https://2.gravatar.com/avatar/d57877937741e28000eb0fa078364bda",
+                    "type": "thumbnail"
+                  }
+                ],
+                "currentLocation": "Earth"
+              }
+            ]
+          }
+        },
+        {
+          "name": "haykodarb",
+          "email": [
+            "work@hayk.ar"
+          ],
+          "commits": 7,
+          "profiles": {
+            "name": "Work",
+            "company": "hayk.ar"
+          }
+        },
+        {
+          "name": "Jhagas Hana Winaya",
+          "email": [
+            [
+              [
+                "jhagashana@mailbox.org",
+                "jhagas.205001@mhs.its.ac.id"
+              ],
+              "5001201017@student.its.ac.id"
+            ],
+            "jhagas.205001@mhs.its.ac.id"
+          ],
+          "commits": 18,
+          "profiles": {
+            "name": "Jhagas",
+            "company": "mhs.its.ac.id"
+          }
+        },
+        {
+          "name": "atulraj85",
+          "email": [
+            "121156542+atulraj85@users.noreply.github.com"
+          ],
+          "commits": 3,
+          "profiles": {
+            "name": "",
+            "company": "users.noreply.github.com"
+          }
+        },
+        {
+          "name": "Marley Plant",
+          "email": [
+            "marley@marleyplant.com"
+          ],
+          "commits": 2,
+          "profiles": {
+            "name": "Marley",
+            "company": "marleyplant.com",
+            "github": {
+              "username": "MarleyPlant",
+              "avatar_url": "https://avatars.githubusercontent.com/u/5164806?v=4",
+              "profile_url": "https://github.com/MarleyPlant",
+              "website": "http://marleyplant.com",
+              "name": "Marley Plant",
+              "location": "Aberystwyth",
+              "company": null,
+              "bio": "Web Designer, Photographer and IT Professional",
+              "twitter_username": null,
+              "orgs": []
+            },
+            "gravatar": [
+              {
+                "profileUrl": "https://gravatar.com/marleyjosephplant",
+                "preferredUsername": "marleyjosephplant",
+                "displayName": "marleyjosephplant",
+                "photos": [
+                  {
+                    "value": "https://1.gravatar.com/avatar/98ad8e576a24a5c8e94819b0ecf6e5f5",
+                    "type": "thumbnail"
+                  }
+                ]
+              }
+            ],
+            "gitlab": {
+              "profile_url": "https://gitlab.com/MarleyPlant",
+              "avatar_url": "https://gitlab.com/uploads/-/system/user/avatar/718410/avatar.png",
+              "username": "MarleyPlant",
+              "name": "Marley Plant"
+            }
+          }
+        },
+        {
+          "name": "Steyn",
+          "email": [
+            "steyn.guelen@me.com"
+          ],
+          "commits": 2,
+          "profiles": {
+            "name": "Steyn Guelen"
+          }
+        },
+        {
+          "name": "achmadnr21",
+          "email": [
+            "achmad.riskynanda01@gmail.com"
+          ],
+          "commits": 2,
+          "profiles": {
+            "name": "Achmad Riskynanda"
+          }
+        },
+        {
+          "name": "Achmad Nashruddin Riskynanda",
+          "email": [
+            "91010605+achmadnr21@users.noreply.github.com"
+          ],
+          "commits": 1,
+          "profiles": {
+            "name": "",
+            "company": "users.noreply.github.com"
+          }
+        },
+        {
+          "name": "Nicholas Humfrey",
+          "email": [
+            "njh@aelius.com"
+          ],
+          "commits": 1,
+          "profiles": {
+            "name": "Njh",
+            "company": "aelius.com",
+            "gravatar": [
+              {
+                "profileUrl": "https://gravatar.com/nhumfrey",
+                "preferredUsername": "nhumfrey",
+                "name": {
+                  "givenName": "Nicholas",
+                  "familyName": "Humfrey",
+                  "formatted": "Nicholas Humfrey"
+                },
+                "displayName": "nhumfrey",
+                "photos": [
+                  {
+                    "value": "https://2.gravatar.com/avatar/dfd2fe00e768ea764a9fedcf9792a0cd",
+                    "type": "thumbnail"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "order": 3
+    },
+    "Brands": {
+      "data": [
+        "arduino",
+        "json"
+      ],
+      "order": 4
+    },
+    "License": {
+      "order": 5
+    },
+    "RelatedProjects": {
+      "order": 6
+    }
+  }
+}

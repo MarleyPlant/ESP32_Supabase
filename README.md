@@ -1,55 +1,62 @@
-# ESP32 Supabase
+<h1><b>ESP32_Supabase</b></h1>
+<p>An Arduino Platform Library for connecting ESP32 to Supabase via REST API, including user authentication.</p>
 
-An Arduino Platform Library for connecting ESP32 to Supabase via REST API, including user authentication.
-For now, it only supports the architectures espressif32 in PlatformIO targets.
+<br />
 
-This library is build for microcontroller, 
-so I think it is appropriate to not include as much user management features, filters or modifier as in [Official Javascript Library](https://supabase.com/docs/reference/javascript/introduction).
 
-For further information :
-- [Supabase Documentation](https://supabase.com/docs)
-- [PostgREST API Documentation](https://postgrest.org/en/stable/api.html)
 
-## Table of Contents
-
-- [ESP32 Supabase](#esp32-supabase)
-  - [Table of Contents](#table-of-contents)
-  - [Using This Library](#using-this-library)
-  - [Examples](#examples)
-  - [Available Method](#available-method)
-    - [Directly Makes Connection to Database](#directly-makes-connection-to-database)
-    - [Building The Queries](#building-the-queries)
-      - [Horizontal Filtering (comparison) Operator](#horizontal-filtering-comparison-operator)
-      - [Ordering, Limiting or Offseting the Result](#ordering-limiting-or-offseting-the-result)
-      - [Getting the Query URL (for debugging)](#getting-the-query-url-for-debugging)
-      - [Reset the Query URL](#reset-the-query-url)
-  - [To-do (sorted by priority)](#to-do-sorted-by-priority)
-
-## Using This Library
-
-This library is available at Arduino's Library Manager, as well as PlatformIO Library Manager
-- [Arduino Library Manager Guide](http://arduino.cc/en/guide/libraries)
-
-## Examples
-
-See all examples in `examples` folder
-
-## Available Method
-
-### Directly Makes Connection to Database
-
+## Instance Methods
 | Method                                           | Description                                                                                                                          |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `begin(String url_a, String key_a);`             | `url_a`  is a Supabase URL and `key_a` is supabase anon key. Returns `void`                                                          |
 | `login_email(String email_a, String password_a)` | Returns http response code `int`                                                                                                     |
 | `login_phone(String phone_a, String password_a)` | Returns http response code `int`                                                                                                     |
 | `insert(String table, String json, bool upsert)` | Returns http response code `int`. If you want to do upsert, set thirt parameter to `true`                                            |
+| `upload(String bucket, String filename, String mime_type, Stream *stream, uint32_t size)` | `bucket` is the name of the Supabase Storage bucket without any `/`. `filename` is the name to upload the file with, should have extension but no `/`. Takes a `Stream*` pointer as an argument, this can be Arduino SD `File*` or SPIFFS `File*` types. Returns http response code `int`. `mime_type` is for eg. `image/jpg`. `size` is the total size in bytes of the file to upload. Returns http response code `int`. |
+| `upload(String bucket, String filename, String mime_type, uint8_t *buffer, uint32_t size)` | Same function as the previous one but takes a `uint8_t*` buffer instead of a `Stream*`. Can be used for files stored in RAM. |
 | `.doSelect()`                                    | Called at the end of select query chain, see [Examples](#examples). Returns http response payload (your data) from Supabase `String` |
 | `.doUpdate(String json)`                         | Called at the end of update query chain, see [Examples](#examples). Returns http response code from Supabase `int`                   |
 
+
+ 
+ <br />
+
+## Connecting To The Database
+
+ 
+ <br />
+
+### Reealtime Listener
+```arduino
+db.realtime.addEntry("Devices", "*", queries, numqueries, DevicesTableHandler);
+```
+
+#### Queries
+```arduino
+SUPABASEQuery queries[1] = {
+    { "field", "eq", "value }
+};
+
+realtime.setupListener("Table", "*", queries, 1);
+realtime.setupHandler([&](JsonDocument doc) {
+    handlerFunction(doc);
+});
+```
+
+#### Loop
+
+```arduino
+db.realtime.loop();
+```
+
+
+ 
+ <br />
+
+
 ### Building The Queries
 
-When building the queries, you can chaining the method like this example.
+When building the queries, you can chain the method like in this example.
 
 > Remember in `.select()` method, it is mandatory to put some low amount of `.limit()`, so you can avoid your microcontroller's memory get overflowed
 
@@ -107,14 +114,38 @@ This method calls in mandatory, must be called after one opetation (let's say `d
 db.urlQuery_reset();
 ```
 
-## To-do (sorted by priority)
+ 
+ <br />
 
-- [x] Make Select API (GET Request), full with row limits (one by default)
-- [x] Make filtering query builder method in Select and update
-- [x] Make order/sort query builder method to in Select
-- [x] Implement Update with PATCH HTTPS Request
-- [x] Port to ESP8266
-- [ ] Implement calling RPC function with HTTPS Request
-- [ ] Implement several methods to implement [Supabase Realtime](https://supabase.com/docs/guides/realtime)
 
-Better documentation is always a welcoming change 😄️😄️
+ 
+ <br />
+
+
+## 🧑‍💼 **Contributors**
+
+| **Name** | **Email**      |**Commits**     | **Social**           |
+| -------- | -------------- | -------------- | -------------------- |
+| **Jeremy Watt** | jermwatt@gmail.com | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-9-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) | [![gravatar](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;gravatar-1E8CBE?style&#x3D;for-the-badge&amp;logo&#x3D;gravatar&amp;logoColor&#x3D;white)](https:&#x2F;&#x2F;gravatar.com&#x2F;jermwatt)  |
+| **haykodarb** | work@hayk.ar | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-7-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) |  |
+| **Jhagas Hana Winaya** | jhagashana@mailbox.org,jhagas.205001@mhs.its.ac.id,5001201017@student.its.ac.id,jhagas.205001@mhs.its.ac.id | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-18-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) |  |
+| **atulraj85** | 121156542+atulraj85@users.noreply.github.com | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-3-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) |  |
+| **Marley Plant** | marley@marleyplant.com | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-2-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;marleyplant) | [![github](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;github-181717?style&#x3D;for-the-badge&amp;logo&#x3D;github&amp;logoColor&#x3D;white)](https:&#x2F;&#x2F;github.com&#x2F;MarleyPlant) [![gravatar](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;gravatar-1E8CBE?style&#x3D;for-the-badge&amp;logo&#x3D;gravatar&amp;logoColor&#x3D;white)](https:&#x2F;&#x2F;gravatar.com&#x2F;marleyjosephplant) [![gitlab](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;gitlab-FC6D26?style&#x3D;for-the-badge&amp;logo&#x3D;gitlab&amp;logoColor&#x3D;white)](https:&#x2F;&#x2F;gitlab.com&#x2F;MarleyPlant)  |
+| **Steyn** | steyn.guelen@me.com | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-2-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) |  |
+| **achmadnr21** | achmad.riskynanda01@gmail.com | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-2-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) |  |
+| **Achmad Nashruddin Riskynanda** | 91010605+achmadnr21@users.noreply.github.com | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-1-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) |  |
+| **Nicholas Humfrey** | njh@aelius.com | [![Commits](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Commits-1-blue?style&#x3D;for-the-badge&amp;logo&#x3D;git)](..&#x2F;commits&#x2F;master?author&#x3D;) | [![gravatar](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;gravatar-1E8CBE?style&#x3D;for-the-badge&amp;logo&#x3D;gravatar&amp;logoColor&#x3D;white)](https:&#x2F;&#x2F;gravatar.com&#x2F;nhumfrey)  |
+
+
+ 
+ <br />
+
+
+## 💻 **TECHNOLOGIES**
+[![Arduino](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Arduino-00878F?style&#x3D;for-the-badge&amp;logo&#x3D;Arduino&amp;logoColor&#x3D;white)]()
+[![JSON](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;JSON-000000?style&#x3D;for-the-badge&amp;logo&#x3D;JSON&amp;logoColor&#x3D;white)]()
+
+
+ 
+ <br />
+
