@@ -1,0 +1,179 @@
+{
+  "name": "ESP32 Supabase",
+  "gitPath": "https://github.com/MarleyPlant/ESP32_Supabase",
+  "description": "An Arduino Platform Library for connecting ESP32 to Supabase via REST API, including user authentication. For now, it only supports the architectures espressif32 in PlatformIO targets.",
+  "sections": [
+    "Shields",
+    "Development",
+    "Custom",
+    "Brands",
+    "License",
+    "RelatedProjects"
+  ],
+  "sectionconfig": {
+    "Shields": {
+      "order": 0,
+      "GitHub Last Commit": {
+        "name": "GitHub Last Commit",
+        "pathParams": {
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/last-commit/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase"
+      },
+      "GitHub Commit Activity": {
+        "name": "GitHub Commit Activity",
+        "pathParams": {
+          "interval": "m",
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/commit-activity/:interval/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase"
+      },
+      "GitHub Repo stars": {
+        "name": "GitHub Repo stars",
+        "pathParams": {
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/stars/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase/stargazers"
+      },
+      "GitHub forks": {
+        "name": "GitHub forks",
+        "pathParams": {
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/forks/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase/network"
+      },
+      "GitHub Issues": {
+        "name": "GitHub Issues",
+        "pathParams": {
+          "variant": "issues",
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/:variant/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase/issues"
+      },
+      "GitHub License": {
+        "name": "GitHub License",
+        "pathParams": {
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/license/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase/blob/master/LICENSE"
+      },
+      "GitHub repo size": {
+        "name": "GitHub repo size",
+        "pathParams": {
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/repo-size/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase"
+      },
+      "GitHub top language": {
+        "name": "GitHub top language",
+        "pathParams": {
+          "user": "MarleyPlant",
+          "repo": "ESP32_Supabase"
+        },
+        "queryParams": {
+          "style": "flat"
+        },
+        "url": "https://img.shields.io/github/languages/top/:user/:repo",
+        "redirect": "https://github.com/MarleyPlant/ESP32_Supabase"
+      }
+    },
+    "Development": {
+      "data": {
+        "depscmd": "pio pkg install",
+        "startcmd": "pio run"
+      },
+      "order": 1
+    },
+    "Custom": {
+      "data": {},
+      "order": 2
+    },
+    "Brands": {
+      "order": 3,
+      "data": [
+        "arduino",
+        "espressif",
+        "platformio",
+        "supabase",
+        "cplusplus",
+        "json",
+        "postgresql",
+        "github"
+      ]
+    },
+    "License": {
+      "data": {
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "description": "A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.",
+        "file": "MIT.txt"
+      },
+      "order": 4
+    },
+    "RelatedProjects": {
+      "order": 5,
+      "data": [
+        {
+          "name": "Supabase",
+          "homepage": "https://supabase.com"
+        },
+        {
+          "name": "PostgREST",
+          "homepage": "https://postgrest.org"
+        },
+        {
+          "name": "ArduinoJson",
+          "homepage": "https://arduinojson.org"
+        },
+        {
+          "name": "PlatformIO",
+          "homepage": "https://platformio.org"
+        }
+      ]
+    }
+  },
+  "keywords": [
+    "arduino",
+    "esp32",
+    "esp8266",
+    "supabase",
+    "rest-api",
+    "postgrest"
+  ]
+}
